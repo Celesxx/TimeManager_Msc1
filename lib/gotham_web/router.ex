@@ -10,6 +10,9 @@ defmodule GothamWeb.Router do
     resources "/workingtimes", WorkingTimeController, except: [:new, :edit]
     resources "/clocks", ClockController, except: [:new, :edit]
     resources "/users", UserController, except: [:new, :edit]
+    scope "/workingtimes" do
+      post "/:userID", WorkingTimeController, :post
+    end
     get "/clock/:id", ClockController, :retrieveUserClock
   end
 
