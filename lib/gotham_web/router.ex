@@ -7,9 +7,12 @@ defmodule GothamWeb.Router do
 
   scope "/api", GothamWeb do
     pipe_through :api
-resources "/workingtimes", WorkingTimeController, except: [:new, :edit]
-resources "/clocks", ClockController, except: [:new, :edit]
-resources "/users", UserController, except: [:new, :edit]
+    resources "/workingtimes", WorkingTimeController, except: [:new, :edit]
+    resources "/clocks", ClockController, except: [:new, :edit]
+    resources "/users", UserController, except: [:new, :edit]
+    scope "/workingtimes" do
+      post "/:userID", WorkingTimeController, :post
+    end
   end
 
   # Enables LiveDashboard only for development
