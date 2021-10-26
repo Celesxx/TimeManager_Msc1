@@ -14,10 +14,6 @@ defmodule Gotham.WorkingTimeController.WorkingTime do
   def changeset(working_time, attrs) do
     working_time
     |> cast(attrs, [:start, :end, :user])
-<<<<<<< HEAD
-    |> validate_required([:start, :end])
-=======
     |> validate_required([:start, :end, :user])
->>>>>>> f0e46b89b31d5aa74591b70b5752350e0c41e337
   end
 end
