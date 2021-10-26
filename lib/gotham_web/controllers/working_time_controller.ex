@@ -41,12 +41,12 @@ defmodule GothamWeb.WorkingTimeController do
     end
   end
 
-  def createUserWorkingTime(conn, %{"id" => id}) do
+  def create_user_working_time(conn, %{"id" => id}) do
 
-    start = conn.body_params["working_time"]["start"]
-    fin = conn.body_params["working_time"]["end"]
+    starting = conn.body_params["working_time"]["start"]
+    ending = conn.body_params["working_time"]["end"]
     try do
-      with {:ok, %WorkingTime{} = working_time} <- WorkingTimeController.create_work(start,fin, id) do
+      with {:ok, %WorkingTime{} = working_time} <- WorkingTimeController.create_work(starting,ending, id) do
         json(conn, %{
           "data" => %{
             "start" => working_time.start,
@@ -62,4 +62,27 @@ defmodule GothamWeb.WorkingTimeController do
     end
   end
 
+  def get_working_time(conn, %{"id" => id}) do
+
+    if not is_nil(conn.query_params["start"]) do
+      starting = conn.query_params["start"]
+      ending = conn.query_params["end"]
+
+      try do
+        working_time = WorkingTimeController.get_working_time(id, starting, ending)
+          json(conn, %{
+            "data" => %{
+              "start" => working_time.start,
+              "end" => working_time.end,
+              "id" => working_time.id
+            }
+          })
+      rescue
+        _e in Ecto.ConstraintError ->
+          json(conn, %{"error" => "Validation Failed"})
+        true ->
+          json(conn, %{"error" => "error"})
+      end
+    end
+  end
 end

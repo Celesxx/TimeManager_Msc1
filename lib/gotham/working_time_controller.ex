@@ -102,9 +102,13 @@ defmodule Gotham.WorkingTimeController do
     WorkingTime.changeset(working_time, attrs)
   end
 
-  def create_work(start, fin, id) do
+  def create_work(start, ending, id) do
     %WorkingTime{}
-    |> WorkingTime.changeset(%{start: start, end: fin, user: id})
+    |> WorkingTime.changeset(%{start: start, end: ending, user: id})
     |> Repo.insert()
+  end
+
+  def get_working_time(id, starting, ending) do
+    Repo.get_by!(WorkingTime, user: id, start: starting, end: ending)
   end
 end
