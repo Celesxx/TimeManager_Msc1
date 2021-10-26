@@ -21,6 +21,9 @@ defmodule GothamWeb.UserController do
   end
 
   def show(conn, %{"id" => id}) do
+    IO.puts("-----------------------")
+    IO.puts(conn.query_params)
+    IO.puts("-----------------------")
     user = UserController.get_user!(id)
     render(conn, "show.json", user: user)
   end

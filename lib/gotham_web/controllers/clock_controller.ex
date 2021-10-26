@@ -23,9 +23,10 @@ defmodule GothamWeb.ClockController do
         })
       end
     rescue
-      e in Ecto.ConstraintError ->
+      _e in Ecto.ConstraintError ->
         json(conn, %{"error" => "Validation failed"})
-      true -> json(conn, %{"error" => "error"})
+      true ->
+        json(conn, %{"error" => "error"})
     end
   end
 
