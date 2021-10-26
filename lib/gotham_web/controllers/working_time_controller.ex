@@ -58,4 +58,22 @@ defmodule GothamWeb.WorkingTimeController do
     render(conn, "show.json", start: start, end: fin, id: id)
   end
 
+  def createUserWorkingTime(conn, %{"start" => start}, %{"end" => fin}, %{"id" => id}) do
+    try do
+      with {:ok, %WorkingTime{} = working_time} <- WorkingTimeController.create_work(start,fin, id) do
+        json(conn, %{
+          "data" => %{
+            "start" => working_time.start,
+            "end" => working_time.end,
+            "user" => working_time.user,
+          }
+        })
+      end
+    rescue
+      e in Ecto.ConstraintError ->
+        json(conn, %{"error" => "Validation failed"})
+      true -> json(conn, %{"error" => "error"})
+    end
+  end
+
 end
