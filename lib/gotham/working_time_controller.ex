@@ -101,4 +101,10 @@ defmodule Gotham.WorkingTimeController do
   def change_working_time(%WorkingTime{} = working_time, attrs \\ %{}) do
     WorkingTime.changeset(working_time, attrs)
   end
+
+  def create_working_time_userID(attrs \\ %{}) do
+    %WorkingTime{}
+    |> WorkingTime.changeset(attrs)
+    |> Repo.insert()
+  end
 end
