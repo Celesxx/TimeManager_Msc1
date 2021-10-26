@@ -13,7 +13,12 @@ defmodule GothamWeb.Router do
     scope "/workingtimes" do
       post "/:userID", WorkingTimeController, :post
     end
-    get "/clock/:id", ClockController, :retrieveUserClock
+    scope "/clocks" do
+      get "/:id", ClockController, :retrieveUserClock
+      post "/:id", ClockController, :createUserClock
+    end
+    # get "/clocks/:id", ClockController, :retrieveUserClock
+    # post "/clocks/:id", ClockController, :toggleUserClock
   end
 
   # Enables LiveDashboard only for development
