@@ -101,4 +101,12 @@ defmodule Gotham.ClockController do
   def change_clock(%Clock{} = clock, attrs \\ %{}) do
     Clock.changeset(clock, attrs)
   end
+
+  def get_clock_by_user_id(id) do
+    Repo.get_by(Clock, user: id)
+  end
+
+
+
+
 end

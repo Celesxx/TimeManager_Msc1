@@ -6,9 +6,9 @@ defmodule GothamWeb.ClockController do
 
   action_fallback GothamWeb.FallbackController
 
-  def retrieveUserClock(conn, %{"id" => id}) do # find la clock d'un user et la return, si vide, return clock: null
-    clocks = ClockController.list_clocks()
-    render(conn, "index.json", clocks: clocks)
+  def retrieveUserClock(conn, %{"id" => id}) do
+    clock = ClockController.get_clock_by_user_id(id)
+    render(conn, "show.json", clock: clock)
   end
 
   def index(conn, _params) do
