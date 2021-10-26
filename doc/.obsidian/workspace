@@ -1,0 +1,94 @@
+{
+  "main": {
+    "id": "2cbf485a7161ee3e",
+    "type": "split",
+    "children": [
+      {
+        "id": "79f1de3108cce125",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Installation.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "74a9f34ae3f902be",
+    "type": "split",
+    "children": [
+      {
+        "id": "a937e018f713be00",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "995b6ca27509e4d0",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "c3439a92be453535",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "432125d7b9685930",
+    "type": "split",
+    "children": [
+      {
+        "id": "82dcfc86ba6b5c09",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f4b62d10b95e2ebb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Installation.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "79f1de3108cce125",
+  "lastOpenFiles": [
+    "Installation.md",
+    "Bootstrap.md"
+  ]
+}
