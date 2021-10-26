@@ -1,6 +1,6 @@
 defmodule GothamWeb.WorkingTimeController do
   use GothamWeb, :controller
-
+  require Logger
   alias Gotham.WorkingTimeController
   alias Gotham.WorkingTimeController.WorkingTime
 
@@ -40,4 +40,22 @@ defmodule GothamWeb.WorkingTimeController do
       send_resp(conn, :no_content, "")
     end
   end
+
+  def post(conn, %{"userID" => userID, "working_time" => working_time_params}) do
+    with {:ok, %WorkingTime{} = working_time} <- WorkingTimeController.create_working_time(working_time_params) do
+      conn
+      |> put_status(:created)
+      |> put_resp_header("location", Routes.working_time_path(conn, :show, working_time))
+      |> render("show.json", working_time: working_time)
+    end
+  end
+
+  def aled(conn, %{"id" => id}, %{"start" => start}, %{"end" => fin}) do
+    start = WorkingTimeController.get_working_time!(start)
+    fin = WorkingTimeController.get_working_time!(fin)
+    id = WorkingTimeController.get_working_time!(id)
+    Logger.info "content #{(start)}, #{(fin)}, #{(id)}"
+    render(conn, "show.json", start: start, end: fin, id: id)
+  end
+
 end

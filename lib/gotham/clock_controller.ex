@@ -49,9 +49,15 @@ defmodule Gotham.ClockController do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_clock(attrs \\ %{}) do
+  # def create_clock(attrs \\ %{}) do
+  #   %Clock{}
+  #   |> Clock.changeset(attrs)
+  #   |> Repo.insert()
+  # end
+
+  def create_clock(time, id) do
     %Clock{}
-    |> Clock.changeset(attrs)
+    |> Clock.changeset(%{time: time, status: true, user: id})
     |> Repo.insert()
   end
 
@@ -101,4 +107,12 @@ defmodule Gotham.ClockController do
   def change_clock(%Clock{} = clock, attrs \\ %{}) do
     Clock.changeset(clock, attrs)
   end
+
+  def get_clock_by_user_id(id) do
+    Repo.get_by(Clock, user: id)
+  end
+
+
+
+
 end

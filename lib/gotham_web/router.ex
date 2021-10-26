@@ -11,12 +11,16 @@ defmodule GothamWeb.Router do
     resources "/workingtimes", WorkingTimeController, except: [:new, :edit]
     resources "/clocks", ClockController, except: [:new, :edit]
     resources "/users", UserController, except: [:new, :edit]
-
-    # scope "/users" do
-    #   get "/:id", UserController, :getById
-    #   put "/:id", UserController, :updateById
-    #   delete "/:id", UserController, :DeleteById
-    # end
+    scope "/workingtimes" do
+      post "/:id", WorkingTimeController, :aled
+      get "/:userID", WorkingTimeController, :aled
+    end
+    scope "/clocks" do
+      get "/:id", ClockController, :retrieveUserClock
+      post "/:id", ClockController, :createUserClock
+    end
+    # get "/clocks/:id", ClockController, :retrieveUserClock
+    # post "/clocks/:id", ClockController, :toggleUserClock
   end
 
   # Enables LiveDashboard only for development

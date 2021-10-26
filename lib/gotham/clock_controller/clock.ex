@@ -14,6 +14,6 @@ defmodule Gotham.ClockController.Clock do
   def changeset(clock, attrs) do
     clock
     |> cast(attrs, [:time, :status, :user])
-    |> validate_required([:time, :status])
+    |> validate_required([:time, :status, :user])
   end
 end
