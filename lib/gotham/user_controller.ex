@@ -37,6 +37,11 @@ defmodule Gotham.UserController do
   """
   def get_user!(id), do: Repo.get!(User, id)
 
+  def get_userMail(username, email) do
+    Repo.get_by!(User, username: username, email: email)
+  end
+
+
   @doc """
   Creates a user.
 
