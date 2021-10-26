@@ -7,9 +7,16 @@ defmodule GothamWeb.Router do
 
   scope "/api", GothamWeb do
     pipe_through :api
-resources "/workingtimes", WorkingTimeController, except: [:new, :edit]
-resources "/clocks", ClockController, except: [:new, :edit]
-resources "/users", UserController, except: [:new, :edit]
+
+    resources "/workingtimes", WorkingTimeController, except: [:new, :edit]
+    resources "/clocks", ClockController, except: [:new, :edit]
+    resources "/users", UserController, except: [:new, :edit]
+
+    # scope "/users" do
+    #   get "/:id", UserController, :getById
+    #   put "/:id", UserController, :updateById
+    #   delete "/:id", UserController, :DeleteById
+    # end
   end
 
   # Enables LiveDashboard only for development
@@ -27,6 +34,7 @@ resources "/users", UserController, except: [:new, :edit]
       live_dashboard "/dashboard", metrics: GothamWeb.Telemetry
     end
   end
+
 
   # Enables the Swoosh mailbox preview in development.
   #
