@@ -23,13 +23,9 @@ defmodule GothamWeb.UserController do
 
 
   def show(conn, %{"id" => id}) do
-<<<<<<< HEAD
     IO.puts("-----------------------")
     IO.puts(conn.query_params)
     IO.puts("-----------------------")
-=======
-    Logger.info "test"
->>>>>>> master
     user = UserController.get_user!(id)
     render(conn, "show.json", user: user)
   end
