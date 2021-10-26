@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Installation.md",
+            "file": "Projet1.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Installation.md",
+                "file": "Projet1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,7 @@
   },
   "active": "79f1de3108cce125",
   "lastOpenFiles": [
+    "Projet1.md",
     "Installation.md",
     "Bootstrap.md"
   ]
