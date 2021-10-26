@@ -1,4 +1,5 @@
 defmodule GothamWeb.UserController do
+  require Logger
   use GothamWeb, :controller
 
   alias Gotham.UserController
@@ -20,12 +21,24 @@ defmodule GothamWeb.UserController do
     end
   end
 
+
   def show(conn, %{"id" => id}) do
+<<<<<<< HEAD
     IO.puts("-----------------------")
     IO.puts(conn.query_params)
     IO.puts("-----------------------")
+=======
+    Logger.info "test"
+>>>>>>> master
     user = UserController.get_user!(id)
     render(conn, "show.json", user: user)
+  end
+
+  def show(conn, %{"id" => id}, %{"email" => email}) do
+    Logger.info "content : \did = #{(id)} email = #{(email)}"
+    user = UserController.get_user!(id)
+    email = UserController.get_user!(email)
+    render(conn, "show.json", user: user, email: email)
   end
 
   def update(conn, %{"id" => id, "user" => user_params}) do
@@ -37,6 +50,7 @@ defmodule GothamWeb.UserController do
   end
 
   def delete(conn, %{"id" => id}) do
+    Logger.info "id #{(id)}"
     user = UserController.get_user!(id)
 
     with {:ok, %User{}} <- UserController.delete_user(user) do
