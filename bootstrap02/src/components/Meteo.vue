@@ -1,14 +1,19 @@
 <template>
-  <div class="hello">
+  <div class="weather">
     <h1>{{ msg }}</h1>
+    <div class="weather-text">
+      <p>La température est actuellement de 15°</p>
+      <p>Date : {{ date }}</p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Meteo',
   props: {
-    msg: String
+    msg: String,
+    date: String
   }
 }
 </script>
